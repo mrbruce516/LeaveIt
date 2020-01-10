@@ -34,6 +34,7 @@
     <link rel="feed" href="{{ .RelPermalink }}" type="application/rss+xml" title="{{ site.Title }}">
   {{ end }}
   {{ partial "seo_schema" . }}
+  <link href="//use.fontawesome.com/releases/v5.9.0/css/all.css" rel="stylesheet">
 </head>
 {{ $cdn_url := ""}}
   {{ if eq ( getenv "HUGO_ENV" ) "production" }}
