@@ -8,13 +8,13 @@
     top: 0;
     left: 0;
     z-index: 9999;
-    display: none;
+    display: outside;
     width: 0;
     height: 3px;
-    background: #ff5b9d;
+    background: #63b8fd;
 }
 
-//文章页添加TOC目录支持
+//toc目录
 .post-toc {
     position: absolute;
     width: 200px;
@@ -47,7 +47,7 @@
         }
     }
     a:hover {
-        color: #c05b4d;
+        color: #63b8fd;
         -webkit-transform: scale(1.1);
         -ms-transform: scale(1.1);
         transform: scale(1.1);
@@ -72,4 +72,9 @@
     .post-toc {
         display: none;
     }
-} 
+}
+
+//放大文章内图片显示
+.post-warp .post-content img {
+    max-width: 100%;
+}
