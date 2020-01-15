@@ -24,9 +24,9 @@
             <i class="far fa-clock"></i> <span class="more-meta"> {{ .ReadingTime }} 分钟</span>
         </div>
     </header>
-    {{ if ( .Site.Params.toc | default true ) }}
-    {{ partial "toc.html" . }}
-    {{ end }}
+        {{ if ( .Site.Params.toc | default true ) }}
+            {{ partial "toc.html" . }}
+        {{ end }}
     <div class="post-content">
         <!--featured_image-->
 
@@ -88,7 +88,7 @@
         {{ end }}
         
         <section>
-            <a href="javascript:window.history.back();">back</a></span> ·
+            <span><a href="javascript:window.history.back();">back</a></span> ·
             <span><a href="{{ .Site.BaseURL }}">home</a></span>
         </section>
     </div>
