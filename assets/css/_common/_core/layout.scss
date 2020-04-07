@@ -34,12 +34,21 @@
         font-family: monospace, monospace;
       }
 
+      .header-back2home-logo {
+        font-weight: bold;
+        font-family: 'Fira Code', Consolas, Monaco, Menlo, Consolas, monospace;
+      }
+
+      .logo_mark {
+        color: #23d18b;
+      }
+
       .logo_cursor {
         display: inline-block;
         width: 10px;
         height: 1rem;
         background: #63b8fd;
-        margin-left: 0px;
+        margin-left: -5px;
         border-radius: 1px;
         animation: cursor 1s infinite;
       }

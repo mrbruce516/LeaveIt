@@ -7,15 +7,7 @@
 @import url('https://fonts.proxy.ustclug.org/css?family=Josefin+Sans|PT+Sans&display=swap');
 
 /* Fira Code */
-@font-face{
-    font-family: 'Fira Code';
-    src: url('/font/FiraCode-Regular.woff2');
-    src: url('/font/FiraCode-Regular.woff2') format('woff2'),
-         url('/font/FiraCode-Regular.eot') format('embedded-opentype'),
-         url('/font/FiraCode-Regular.woff') format('woff'),
-         url('/font/FiraCode-Regular.ttf') format('truetype');
-    font-style: normal;
-}
+@import url('https://cdn.jsdelivr.net/gh/tonsky/FiraCode@2/distr/fira_code.css');
   
   html {
     &::-webkit-scrollbar {
