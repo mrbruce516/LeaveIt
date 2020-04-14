@@ -16,11 +16,24 @@
             line-height: 5.5em;
             background: $light-background-color;
 
+            .header-back2home-logo {
+                font-weight: bold;
+                font-family: 'Fira Code', Consolas, Monaco, Menlo, Consolas, monospace;
+              }
+            
+            .logo_mark {
+                color: #23d18b;
+              }
 
             .header-logo {
                 font-weight: bold;
                 font-family: monospace, monospace;
             }
+
+            .header-back2home-logo {
+                font-weight: bold;
+                font-family: 'Fira Code', Consolas, Monaco, Menlo, Consolas, monospace;
+              }
 
             .logo_cursor {
                 display: inline-block;
