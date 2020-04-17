@@ -49,6 +49,14 @@
   {{ end }}
   {{ partial "seo_schema" . }}
   <link href="//use.fontawesome.com/releases/v5.9.0/css/all.css" rel="stylesheet">
+
+<!--添加音乐播放器-->
+   <!-- require APlayer -->
+   <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/aplayer/dist/APlayer.min.css">
+   <script src="https://cdn.jsdelivr.net/npm/aplayer/dist/APlayer.min.js"></script>
+  <!-- require MetingJS -->
+   <script src="https://cdn.jsdelivr.net/npm/meting@2/dist/Meting.min.js"></script>
+
 </head>
 {{ $cdn_url := ""}}
   {{ if eq ( getenv "HUGO_ENV" ) "production" }}
