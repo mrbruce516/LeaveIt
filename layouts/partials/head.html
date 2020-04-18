@@ -12,6 +12,12 @@
   <meta content="{{ delimit .Keywords ", " }}" name="keywords">
   <meta content="{{ $isHomePage := eq .Title .Site.Title }}{{ .Site.Params.description }}{{ if eq $isHomePage false }} - {{ .Description }}{{ end }}" property="og:description">
 
+  <!-- require APlayer -->
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/aplayer/dist/APlayer.min.css">
+  <script src="https://cdn.jsdelivr.net/npm/aplayer/dist/APlayer.min.js"></script>
+  <!-- require MetingJS -->
+  <script src="https://cdn.jsdelivr.net/npm/meting@2.0.1/dist/Meting.min.js"></script>
+
   <!--原始部分-->
   <meta http-equiv="content-type" content="text/html;charset=utf-8">
   <meta http-equiv="X-UA-Compatible" content="chrome=1">
@@ -49,13 +55,6 @@
   {{ end }}
   {{ partial "seo_schema" . }}
   <link href="//use.fontawesome.com/releases/v5.9.0/css/all.css" rel="stylesheet">
-
-<!--添加音乐播放器-->
-   <!-- require APlayer -->
-   <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/aplayer/dist/APlayer.min.css">
-   <script src="https://cdn.jsdelivr.net/npm/aplayer/dist/APlayer.min.js"></script>
-  <!-- require MetingJS -->
-   <script src="https://cdn.jsdelivr.net/npm/meting@2/dist/Meting.min.js"></script>
 
 </head>
 {{ $cdn_url := ""}}
