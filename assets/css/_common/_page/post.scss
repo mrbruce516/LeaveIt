@@ -240,4 +240,13 @@
     .post-comment{
         padding: 3em 0;
     }
+
+    // 隐藏文字
+    .spoiler { 
+        color: black; 
+        background-color:black;
+    }
+    .spoiler:hover{
+        color: white;
+    }
 }
