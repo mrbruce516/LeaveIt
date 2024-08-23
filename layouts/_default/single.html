@@ -108,13 +108,13 @@
 
     <div class="post-comment">
         {{ if ( .Params.showComments | default true ) }}
-        {{ if ne .Site.DisqusShortname "" }}
+        {{ if ne .Site.Config.Services.Disqus.Shortname "" }}
         {{ template "_internal/disqus.html" . }}
         {{ end }}
         <!-- valine -->
         {{- if .Site.Params.valine.enable -}}
         <!-- id 将作为查询条件 -->
-        <span id="{{ .URL | relURL }}" class="leancloud_visitors" data-flag-title="{{ .Title }}">
+        <span id="{{ .RelPermalink | relURL }}" class="leancloud_visitors" data-flag-title="{{ .Title }}">
             <span class="post-meta-item-text">访问量 </span>
             <span class="leancloud-visitors-count"></span>
             <p></p>
