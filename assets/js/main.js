@@ -22,7 +22,7 @@ jQuery(function($) {
     _Blog.changeTitle = function() {
         var currentTitle = document.title;
         window.onblur = function() {
-            document.title = '客官，别走啊 (* ॑ᐜ ॑*)';
+            document.title = 'MAJI';
         }
         window.onfocus = function() {
             document.title = currentTitle;
