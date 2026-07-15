@@ -19,12 +19,11 @@
     // fixed 脱离文档流，避免与正文重叠（sticky 会占流内空间导致挤压）
     position: fixed;
     width: 200px;
-    // 贴正文(780px居中)左边缘外侧，留 60px 间距：
-    // 正文右半宽 390px + 间距 60px，TOC 右边对齐到正文左边外侧
-    right: calc(50% + 390px + 60px);
+    // 以视口左缘为基准，左边距 100px
+    left: 100px;
     top: 6rem;
-    // 目录过高时仍可内部滚动，但隐藏滚动条保持简约
-    max-height: calc(100vh - 7rem);
+    // 目录高度更短、留白更多，更现代；超长时内部滚动（滚动条已隐藏）
+    max-height: calc(100vh - 14rem);
     overflow-y: auto;
     scrollbar-width: none; // Firefox 隐藏滚动条
     &::-webkit-scrollbar {
