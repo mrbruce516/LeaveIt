@@ -14,19 +14,17 @@
     background: #63b8fd;
 }
 
-//toc目录：左侧栏，滚动高亮 + 自动折叠
+//toc目录：固定左侧栏，滚动高亮 + 自动折叠
 .post-toc {
-    position: absolute;
+    // fixed 脱离文档流，避免与正文重叠（sticky 会占流内空间导致挤压）
+    position: fixed;
     width: 200px;
-    // 贴正文(780px居中)左边缘外侧，留 24px 间距
-    right: 100%;
-    margin-right: 24px;
-    top: 2rem;
-    // sticky 吸附：随滚动固定，替代旧版手写 fixed
-    position: -webkit-sticky;
-    position: sticky;
+    // 贴正文(780px居中)左边缘外侧，留 24px 间距：
+    // 正文右半宽 390px + 间距 24px，TOC 右边对齐到正文左边外侧
+    right: calc(50% + 390px + 24px);
+    top: 6rem;
     // 目录过高时自带滚动，避免顶到评论区
-    max-height: calc(100vh - 4rem);
+    max-height: calc(100vh - 7rem);
     overflow-y: auto;
     padding: 0 10px;
     box-sizing: border-box;
