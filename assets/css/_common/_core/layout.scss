@@ -11,6 +11,10 @@
     height: 4rem;
     line-height: 4rem;
     width: 100%;
+    // sticky 吸顶：滚动时持久显示；留在文档流，无需为内容补 padding
+    position: sticky;
+    top: 0;
+    z-index: 100;
     background-color: $light-navbar-background-color;
     .dark-theme & {
       background-color: $dark-navbar-background-color;
