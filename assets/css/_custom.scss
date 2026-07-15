@@ -14,58 +14,89 @@
     background: #63b8fd;
 }
 
-//toc目录
+//toc目录：左侧栏，滚动高亮 + 自动折叠
 .post-toc {
     position: absolute;
     width: 200px;
-    margin-left: 780px;
-    padding: 10px;
-    word-wrap: break-word;
+    // 贴正文(780px居中)左边缘外侧，留 24px 间距
+    right: 100%;
+    margin-right: 24px;
+    top: 2rem;
+    // sticky 吸附：随滚动固定，替代旧版手写 fixed
+    position: -webkit-sticky;
+    position: sticky;
+    // 目录过高时自带滚动，避免顶到评论区
+    max-height: calc(100vh - 4rem);
+    overflow-y: auto;
+    padding: 0 10px;
     box-sizing: border-box;
+    word-wrap: break-word;
+
     .post-toc-title {
-        margin: 0;
-        font-weight: 400;
-        text-transform: uppercase;
+        margin: 0 0 10px;
+        font-size: 0.875em;
+        font-weight: 600;
+        color: $light-font-secondary-color;
+        .dark-theme & {
+            color: $dark-font-secondary-color;
+        }
     }
+
     .post-toc-content {
         &.always-active ul {
             display: block;
         }
-        >nav>ul {
-            margin: 10px 0;
+        > nav > ul {
+            margin: 0;
         }
         ul {
             padding-left: 0;
             list-style: none;
             ul {
-            padding-left: 15px;
-            display: none;
+                padding-left: 14px;
+                display: none; // 默认折叠子级
             }
+            // 当前章节祖先链展开
             .has-active > ul {
                 display: block;
             }
         }
     }
-    a:hover {
-        color: #63b8fd;
-        -webkit-transform: scale(1.1);
-        -ms-transform: scale(1.1);
-        transform: scale(1.1);
-    }
+
     a {
+        position: relative;
         display: block;
-        line-height: 30px;
+        padding-left: 12px;
+        line-height: 28px;
+        font-size: 0.875em;
+        color: $light-font-secondary-color;
         overflow: hidden;
         white-space: nowrap;
         text-overflow: ellipsis;
-        -webkit-transition-duration: .2s;
-        transition-duration: .2s;
-        -webkit-transition-property: -webkit-transform;
-        transition-property: -webkit-transform;
-        transition-property: transform;
-        transition-property: transform,-webkit-transform;
-        -webkit-transition-timing-function: ease-out;
-        transition-timing-function: ease-out;
+        transition: color .2s ease-out;
+        .dark-theme & {
+            color: $dark-font-secondary-color;
+        }
+
+        // 当前章节：左侧竖条 + 加粗主题色
+        &.active {
+            font-weight: 600;
+            color: #63b8fd;
+            &::before {
+                content: "";
+                position: absolute;
+                left: 0;
+                top: 6px;
+                bottom: 6px;
+                width: 3px;
+                border-radius: 2px;
+                background: #63b8fd;
+            }
+        }
+
+        &:hover {
+            color: #63b8fd;
+        }
     }
 }
 @media only screen and (max-width: 1224px) {
