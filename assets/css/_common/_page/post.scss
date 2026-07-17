@@ -93,6 +93,72 @@
             word-wrap: break-word;
           }
 
+        // Chroma 代码块外框（render-codeblock.html 产出 .chroma-wrapper）
+        .chroma-wrapper {
+            position: relative;
+            margin: 1.2em 0;
+            padding: 0;
+            border: 1px solid #e1e4e8;
+            border-radius: 8px;
+            background: #f6f8fa;
+            overflow: hidden;
+
+            .dark-theme & {
+                background: #2b2d31;
+                border-color: #3a3d41;
+            }
+
+            // hover 时才显现复制按钮
+            &:hover .copy-code-btn {
+                opacity: 1;
+            }
+
+            .copy-code-btn {
+                position: absolute;
+                top: 6px;
+                right: 6px;
+                z-index: 2;
+                padding: 2px 10px;
+                font-size: 12px;
+                color: #4c4f69;
+                background: rgba(255, 255, 255, 0.7);
+                border: 1px solid #e1e4e8;
+                border-radius: 4px;
+                cursor: pointer;
+                opacity: 0;
+                transition: opacity 0.2s ease-out;
+
+                .dark-theme & {
+                    color: #cdd6f4;
+                    background: rgba(43, 45, 49, 0.8);
+                    border-color: #3a3d41;
+                }
+            }
+
+            // 内层 pre：去掉自带背景与外边距，由 wrapper 统一控制
+            .highlight {
+                margin: 0;
+            }
+            pre.chroma {
+                margin: 0;
+                padding: 14px 16px;
+                background: transparent;
+                border: 0;
+                border-radius: 0;
+                overflow-x: auto;
+                font-size: 13px;
+                line-height: 1.6;
+            }
+            // 行号：浅色、不可选（复制不带行号）
+            .ln {
+                color: #a0a0a0;
+                user-select: none;
+                .dark-theme & {
+                    color: #6e7681;
+                }
+            }
+        }
+
         code:not([class]) {
             padding: 5px 5px;
             background: #fff;

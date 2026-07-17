@@ -42,9 +42,26 @@ jQuery(function($) {
         })
     }
 
+    // 代码块复制按钮：复制排除行号的纯代码，反馈 1.5 秒
+    _Blog.copyCode = function() {
+        $('.copy-code-btn').on('click', function() {
+            // clone 后移除行号 .ln，取纯代码文本，避免复制带行号
+            var code = $(this).siblings('.highlight').find('code').clone();
+            code.find('.ln').remove();
+            var text = code.text();
+            var btn = this;
+            navigator.clipboard.writeText(text).then(function() {
+                var original = btn.textContent;
+                btn.textContent = '已复制 ✓';
+                setTimeout(function() { btn.textContent = original; }, 1500);
+            });
+        });
+    };
+
     $(document).ready(function() {
         _Blog.changeTitle()
         _Blog.toggleTheme()
         _Blog.toggleMobileMenu()
+        _Blog.copyCode()
     });
 });
