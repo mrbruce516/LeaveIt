@@ -1,64 +1,173 @@
-/*! Color themes for Google Code Prettify | MIT License | github.com/jmblog/color-themes-for-google-code-prettify */
-  
-.prettyprint {
-  background: #2d2d2d;
-  font-family: 'Fira Code',Menlo,Bitstream Vera Sans Mono,DejaVu Sans Mono,Monaco,Consolas,monospace;
-  border: 0 !important;
-}
+// ==============================
+// Chroma 语法高亮配色（Catppuccin Latte 浅 / Mocha 深）
+// 来源：catppuccin/chroma 官方 dist/*-chroma-style.css
+// 紫色 keyword token（.k/.kr/.kp/.nt）替换为皮肤蓝：
+//   浅色 #2d96bd（$light-post-link-color）、深色 #63b8fd（TOC 激活色）
+// background-color 去除，改由 .chroma-wrapper 统一控制背景
+// ==============================
 
-.pln {
-  color: #ccc;
+// --- Latte（浅色，默认）---
+.chroma {
+  color: #4c4f69;
 }
+.chroma .x { color: #4c4f69; }
+.chroma .err { color: #d20f39; }
+.chroma .lnlinks { outline: none; text-decoration: none; color: inherit; }
+.chroma .lntd { vertical-align: top; padding: 0; margin: 0; border: 0; }
+.chroma .lntable { border-spacing: 0; padding: 0; margin: 0; border: 0; }
+.chroma .hl { color: #4c4f69; }
+.chroma .lnt { white-space: pre; user-select: none; margin-right: 0.4em; padding: 0 0.4em 0 0.4em; color: #8c8fa1; }
+.chroma .ln { white-space: pre; user-select: none; margin-right: 0.4em; padding: 0 0.4em 0 0.4em; color: #8c8fa1; }
+.chroma .k { color: #2d96bd; }       /* 关键字：紫 → 皮肤蓝 */
+.chroma .kc { color: #fe640b; }
+.chroma .kd { color: #8839ef; }
+.chroma .kn { color: #d20f39; }
+.chroma .kp { color: #2d96bd; }       /* 关键字占位：紫 → 皮肤蓝 */
+.chroma .kr { color: #2d96bd; }       /* 保留字：紫 → 皮肤蓝 */
+.chroma .kt { color: #df8e1d; }
+.chroma .n { color: #4c4f69; }
+.chroma .na { color: #1e66f5; }
+.chroma .nb { color: #fe640b; }
+.chroma .bp { color: #fe640b; }
+.chroma .nc { color: #df8e1d; }
+.chroma .no { color: #d20f39; }
+.chroma .nd { color: #1e66f5; }
+.chroma .ni { color: #ea76cb; }
+.chroma .ne { color: #df8e1d; }
+.chroma .nf { color: #1e66f5; }
+.chroma .fm { color: #1e66f5; }
+.chroma .nl { color: #04a5e5; }
+.chroma .nn { color: #df8e1d; }
+.chroma .nx { color: #4c4f69; }
+.chroma .py { color: #fe640b; }
+.chroma .nt { color: #2d96bd; }       /* 标签名：紫 → 皮肤蓝 */
+.chroma .nv { color: #e64553; }
+.chroma .vc { color: #e64553; }
+.chroma .vg { color: #e64553; }
+.chroma .vi { color: #e64553; }
+.chroma .vm { color: #fe640b; }
+.chroma .l { color: #4c4f69; }
+.chroma .ld { color: #40a02b; }
+.chroma .s { color: #40a02b; }
+.chroma .sa { color: #d20f39; }
+.chroma .sb { color: #40a02b; }
+.chroma .sc { color: #40a02b; }
+.chroma .dl { color: #1e66f5; }
+.chroma .sd { color: #6c6f85; }
+.chroma .s2 { color: #40a02b; }
+.chroma .se { color: #1e66f5; }
+.chroma .sh { color: #40a02b; }
+.chroma .s1 { color: #40a02b; }
+.chroma .ss { color: #40a02b; }
+.chroma .m { color: #fe640b; }
+.chroma .mb { color: #fe640b; }
+.chroma .mf { color: #fe640b; }
+.chroma .mh { color: #fe640b; }
+.chroma .mi { color: #fe640b; }
+.chroma .il { color: #fe640b; }
+.chroma .mo { color: #fe640b; }
+.chroma .o { color: #04a5e5; }
+.chroma .ow { color: #04a5e5; }
+.chroma .p { color: #7287fd; }
+.chroma .c { color: #9ca0b0; font-style: italic; }
+.chroma .ch { color: #9ca0b0; font-style: italic; }
+.chroma .cm { color: #9ca0b0; font-style: italic; }
+.chroma .c1 { color: #9ca0b0; font-style: italic; }
+.chroma .cs { color: #9ca0b0; font-style: italic; }
+.chroma .cp { color: #9ca0b0; font-style: italic; }
+.chroma .cpf { color: #1e66f5; font-style: italic; }
+.chroma .gd { color: #d20f39; }
+.chroma .ge { font-style: italic; }
+.chroma .gr { color: #d20f39; }
+.chroma .gh { color: #fe640b; }
+.chroma .gi { color: #40a02b; }
+.chroma .go { color: #4c4f69; }
+.chroma .gp { color: #9ca0b0; }
+.chroma .gs { font-weight: bold; }
+.chroma .gu { color: #fe640b; }
+.chroma .gt { color: #d20f39; }
+.chroma .gl { text-decoration: underline; }
+.chroma .w { color: #6c6f85; }
 
-ol.linenums {
-  margin-top: 0;
-  margin-bottom: 0;
-  color: #999;
-}
-
-li {
-  &.L0, &.L1, &.L2, &.L3, &.L4, &.L5, &.L6, &.L7, &.L8, &.L9 {
-    padding-left: 1em;
-    background-color: #2d2d2d;
-    list-style-type: decimal;
-  }
-}
-
-@media screen {
-  .str {
-    color: #9c9;
-  }
-  .kwd {
-    color: #c9c;
-  }
-  .com {
-    color: #999;
-  }
-  .typ {
-    color: #69c;
-  }
-  .lit {
-    color: #f99157;
-  }
-  .pun, .opn, .clo {
-    color: #ccc;
-  }
-  .tag {
-    color: #f2777a;
-  }
-  .atn {
-    color: #f99157;
-  }
-  .atv {
-    color: #6cc;
-  }
-  .dec {
-    color: #f99157;
-  }
-  .var {
-    color: #f2777a;
-  }
-  .fun {
-    color: #69c;
-  }
+// --- Mocha（深色，.dark-theme 覆写）---
+.dark-theme {
+  .chroma { color: #cdd6f4; }
+  .chroma .x { color: #cdd6f4; }
+  .chroma .err { color: #f38ba8; }
+  .chroma .lnlinks { outline: none; text-decoration: none; color: inherit; }
+  .chroma .lntd { vertical-align: top; padding: 0; margin: 0; border: 0; }
+  .chroma .lntable { border-spacing: 0; padding: 0; margin: 0; border: 0; }
+  .chroma .hl { color: #cdd6f4; }
+  .chroma .lnt { white-space: pre; user-select: none; margin-right: 0.4em; padding: 0 0.4em 0 0.4em; color: #7f849c; }
+  .chroma .ln { white-space: pre; user-select: none; margin-right: 0.4em; padding: 0 0.4em 0 0.4em; color: #7f849c; }
+  .chroma .k { color: #63b8fd; }       /* 关键字：紫 → 皮肤蓝 */
+  .chroma .kc { color: #fab387; }
+  .chroma .kd { color: #cba6f7; }
+  .chroma .kn { color: #f38ba8; }
+  .chroma .kp { color: #63b8fd; }       /* 关键字占位：紫 → 皮肤蓝 */
+  .chroma .kr { color: #63b8fd; }       /* 保留字：紫 → 皮肤蓝 */
+  .chroma .kt { color: #f9e2af; }
+  .chroma .n { color: #cdd6f4; }
+  .chroma .na { color: #89b4fa; }
+  .chroma .nb { color: #fab387; }
+  .chroma .bp { color: #fab387; }
+  .chroma .nc { color: #f9e2af; }
+  .chroma .no { color: #f38ba8; }
+  .chroma .nd { color: #89b4fa; }
+  .chroma .ni { color: #f5c2e7; }
+  .chroma .ne { color: #f9e2af; }
+  .chroma .nf { color: #89b4fa; }
+  .chroma .fm { color: #89b4fa; }
+  .chroma .nl { color: #89dceb; }
+  .chroma .nn { color: #f9e2af; }
+  .chroma .nx { color: #cdd6f4; }
+  .chroma .py { color: #fab387; }
+  .chroma .nt { color: #63b8fd; }       /* 标签名：紫 → 皮肤蓝 */
+  .chroma .nv { color: #eba0ac; }
+  .chroma .vc { color: #eba0ac; }
+  .chroma .vg { color: #eba0ac; }
+  .chroma .vi { color: #eba0ac; }
+  .chroma .vm { color: #fab387; }
+  .chroma .l { color: #cdd6f4; }
+  .chroma .ld { color: #a6e3a1; }
+  .chroma .s { color: #a6e3a1; }
+  .chroma .sa { color: #f38ba8; }
+  .chroma .sb { color: #a6e3a1; }
+  .chroma .sc { color: #a6e3a1; }
+  .chroma .dl { color: #89b4fa; }
+  .chroma .sd { color: #7f849c; }
+  .chroma .s2 { color: #a6e3a1; }
+  .chroma .se { color: #89b4fa; }
+  .chroma .sh { color: #a6e3a1; }
+  .chroma .s1 { color: #a6e3a1; }
+  .chroma .ss { color: #a6e3a1; }
+  .chroma .m { color: #fab387; }
+  .chroma .mb { color: #fab387; }
+  .chroma .mf { color: #fab387; }
+  .chroma .mh { color: #fab387; }
+  .chroma .mi { color: #fab387; }
+  .chroma .il { color: #fab387; }
+  .chroma .mo { color: #fab387; }
+  .chroma .o { color: #89dceb; }
+  .chroma .ow { color: #89dceb; }
+  .chroma .p { color: #94e2d5; }
+  .chroma .c { color: #6c7086; font-style: italic; }
+  .chroma .ch { color: #6c7086; font-style: italic; }
+  .chroma .cm { color: #6c7086; font-style: italic; }
+  .chroma .c1 { color: #6c7086; font-style: italic; }
+  .chroma .cs { color: #6c7086; font-style: italic; }
+  .chroma .cp { color: #6c7086; font-style: italic; }
+  .chroma .cpf { color: #89b4fa; font-style: italic; }
+  .chroma .gd { color: #f38ba8; }
+  .chroma .ge { font-style: italic; }
+  .chroma .gr { color: #f38ba8; }
+  .chroma .gh { color: #fab387; }
+  .chroma .gi { color: #a6e3a1; }
+  .chroma .go { color: #cdd6f4; }
+  .chroma .gp { color: #6c7086; }
+  .chroma .gs { font-weight: bold; }
+  .chroma .gu { color: #fab387; }
+  .chroma .gt { color: #f38ba8; }
+  .chroma .gl { text-decoration: underline; }
+  .chroma .w { color: #7f849c; }
 }
