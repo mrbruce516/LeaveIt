@@ -148,6 +148,9 @@
                 overflow-x: auto;
                 font-size: 13px;
                 line-height: 1.6;
+                // 重置父级 code/pre 的 pre-wrap 与 break-all，让长行水平滚动而非折行
+                white-space: pre;
+                word-break: normal;
             }
             // 行号：浅色、不可选（复制不带行号）
             .ln {
