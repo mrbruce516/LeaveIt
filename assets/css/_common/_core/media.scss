@@ -221,9 +221,7 @@
         }
     }
 
-    blockquote {
-        background-color:$dark-blockquote-background-color;
-    }
+    // blockquote 深色背景已由 base.scss 的 .dark-theme 接管，此处覆写删除（避免与浅色路径冲突）
 
     .navbar {
         background-color: $dark-navbar-background-color;
@@ -291,9 +289,7 @@
                 text-decoration: underline;
             }
 
-            code:not([class]) {
-                background: $dark-code-notclass-background-color;
-            }
+            // 行内代码深色背景已由 post.scss 的 .dark-theme 接管，此处覆写删除（避免与浅色路径冲突）
         }
 
         .post-copyright {
