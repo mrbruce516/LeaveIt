@@ -162,17 +162,19 @@
             }
         }
 
+        // 行内代码：柔色胶囊，与代码块 keyword 蓝同源
         code:not([class]) {
-            padding: 5px 5px;
-            background: #fff;
-            border: 1px solid #ddd;
-            box-shadow: 1px 1px 0 #fff, 2px 2px 0 #ddd;
-            margin-left: 3px;
-            margin-right: 3px;
+            padding: 2px 6px;
+            margin: 0 2px;
+            font-size: 0.9em;
+            color: #2d96bd;
+            background: rgba(45, 150, 189, 0.10);
+            border-radius: 4px;
+            word-break: break-word;
 
-            .dark-theme &:not([class]) {
-                background: transparent;
-                box-shadow: 1px 1px 0 $dark-font-secondary-color, 2px 2px 0 $dark-font-secondary-color;
+            .dark-theme & {
+                color: #63b8fd;
+                background: rgba(99, 184, 253, 0.14);
             }
         }
 
