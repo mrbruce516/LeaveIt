@@ -60,9 +60,8 @@ jQuery(function($) {
                 return;
             }
             navigator.clipboard.writeText(text).then(function() {
-                var original = btn.textContent;
                 btn.textContent = '已复制 ✓';
-                setTimeout(function() { btn.textContent = original; }, 1500);
+                setTimeout(function() { btn.textContent = '复制'; }, 1500);
             }).catch(function() {
                 btn.textContent = '复制失败';
                 setTimeout(function() { btn.textContent = '复制'; }, 1500);
