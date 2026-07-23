@@ -26,7 +26,10 @@ jQuery(function($) {
 
     _Blog.toggleTheme = function() {
         const currentTheme = window.localStorage && window.localStorage.getItem('theme')
-        const isDark = currentTheme === 'dark'
+        // localStorage 已设则用用户选择；未设则跟随系统深色偏好，
+        // 否则系统深色时 body 无 .dark-theme，深色规则不命中而 media.scss 旧深色背景生效，造成撕裂
+        const isDark = currentTheme === 'dark' ||
+            (!currentTheme && window.matchMedia && window.matchMedia('(prefers-color-scheme: dark)').matches)
         $('body').toggleClass('dark-theme', isDark)
         $('.theme-switch').on('click', () => {
             $('body').toggleClass('dark-theme')
