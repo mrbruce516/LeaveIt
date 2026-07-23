@@ -50,10 +50,19 @@ jQuery(function($) {
             code.find('.ln').remove();
             var text = code.text();
             var btn = this;
+            // clipboard 在非安全上下文或被禁用时可能不可用，显式捕获失败给按钮反馈
+            if (!navigator.clipboard) {
+                btn.textContent = '复制失败';
+                setTimeout(function() { btn.textContent = '复制'; }, 1500);
+                return;
+            }
             navigator.clipboard.writeText(text).then(function() {
                 var original = btn.textContent;
                 btn.textContent = '已复制 ✓';
                 setTimeout(function() { btn.textContent = original; }, 1500);
+            }).catch(function() {
+                btn.textContent = '复制失败';
+                setTimeout(function() { btn.textContent = '复制'; }, 1500);
             });
         });
     };
