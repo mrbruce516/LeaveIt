@@ -1,0 +1,64 @@
+{{- /* 社交分享元数据：Open Graph + Twitter Card，按页面类型分流 */ -}}
+{{- $title := .Title -}}
+{{- $description := "" -}}
+{{- $image := "" -}}
+{{- $isArticle := false -}}
+
+{{- if .IsPage -}}
+  {{- $isArticle = true -}}
+  {{- $description = cond (ne .Description "") .Description .Summary -}}
+  {{- /* og:image 优先级：文章 featured_image → 站点默认图 */ -}}
+  {{- with .Params.featured_image -}}
+    {{- $image = . | absURL -}}
+  {{- else -}}
+    {{- with $.Site.Params.seo_image -}}
+      {{- $image = . | absURL -}}
+    {{- end -}}
+  {{- end -}}
+{{- else -}}
+  {{- /* 非文章页：用站点 description 与默认图 */ -}}
+  {{- $description = .Site.Params.description -}}
+  {{- with .Site.Params.seo_image -}}
+    {{- $image = . | absURL -}}
+  {{- end -}}
+{{- end -}}
+
+{{- if eq .IsHome true -}}
+  {{- $title = .Site.Title -}}
+{{- end -}}
+
+{{- /* 有图用大图卡，无图降级为摘要卡 */ -}}
+{{- $twitterCard := cond (ne $image "") "summary_large_image" "summary" -}}
+
+<meta property="og:site_name" content="{{ .Site.Title }}">
+<meta property="og:title" content="{{ $title }}">
+<meta property="og:url" content="{{ .Permalink }}">
+<meta property="og:locale" content="zh_CN">
+<meta property="og:type" content="{{ cond $isArticle "article" "website" }}">
+{{- with $description }}
+<meta property="og:description" content="{{ . }}">
+{{- end }}
+{{- with $image }}
+<meta property="og:image" content="{{ . }}">
+{{- end }}
+
+{{- if $isArticle }}
+<meta property="article:published_time" content="{{ .Date.Format "2006-01-02T15:04:05-07:00" }}">
+<meta property="article:modified_time" content="{{ .Lastmod.Format "2006-01-02T15:04:05-07:00" }}">
+{{- range .Params.tags }}
+<meta property="article:tag" content="{{ . }}">
+{{- end }}
+{{- end }}
+
+<meta name="twitter:card" content="{{ $twitterCard }}">
+<meta name="twitter:title" content="{{ $title }}">
+{{- with $description }}
+<meta name="twitter:description" content="{{ . }}">
+{{- end }}
+{{- with $image }}
+<meta name="twitter:image" content="{{ . }}">
+{{- end }}
+{{- with .Site.Params.social.Twitter }}
+<meta name="twitter:site" content="@{{ . }}">
+<meta name="twitter:creator" content="@{{ . }}">
+{{- end }}
