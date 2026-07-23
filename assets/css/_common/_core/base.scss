@@ -86,20 +86,18 @@ a {
   }
 }
   
+// 引用块：主题色竖条 + 柔色底（与皮肤蓝统一）
 blockquote {
-  font: 14px/22px normal helvetica, sans-serif;
-  margin-top: 10px;
-  margin-bottom: 10px;
-  margin-left: 2%;
-  margin-right: 0%;
-  padding-left: 15px;
-  padding-top: 10px;
-  padding-right: 10px;
-  padding-bottom: 10px;
-  border-left: 3px solid #ccc;
-  background-color:#f1f1f1;
+  margin: 10px 0;
+  padding: 10px 16px;
+  border-left: 4px solid #2d96bd;
+  border-radius: 0 6px 6px 0;
+  background-color: rgba(45, 150, 189, 0.06);
+  color: $light-font-secondary-color;
 
   .dark-theme & {
-    background-color:$dark-blockquote-background-color;
+    border-left-color: #63b8fd;
+    background-color: rgba(99, 184, 253, 0.10);
+    color: $dark-font-secondary-color;
   }
 }
