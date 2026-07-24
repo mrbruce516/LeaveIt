@@ -1,1 +1,6 @@
 .DS_Store
+
+# Hugo 构建产物（exampleSite 离线预览时生成，不应入库）
+exampleSite/.hugo_build.lock
+exampleSite/public/
+exampleSite/resources/
