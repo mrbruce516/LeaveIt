@@ -9,8 +9,8 @@
   <meta name="theme-color" content="#ffffff">
   <!--SEO-->
   <meta name="baidu-site-verification" content="e0YUuV3foo" />
-  {{- /* keywords 优先用页面级，回退站点级，避免双重输出 */ -}}
-  <meta name="keywords" content="{{ with .Keywords }}{{ . }}{{ else }}{{ $.Site.Params.keywords }}{{ end }}">
+  {{/* keywords 优先用页面级，回退站点级，避免双重输出 */}}
+  <meta name="keywords" content="{{ with .Keywords }}{{ delimit . ", " }}{{ else }}{{ $.Site.Params.keywords }}{{ end }}">
   
   <!-- require APlayer -->
   <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/aplayer/dist/APlayer.min.css">
