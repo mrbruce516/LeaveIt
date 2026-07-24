@@ -18,13 +18,7 @@
 {{- end }}
 {{- if .IsPage }}
 {{- $image := "" -}}
-{{- with .Params.featured_image -}}
-  {{- $image = . | absURL -}}
-{{- else -}}
-  {{- with $.Site.Params.seo_image -}}
-    {{- $image = . | absURL -}}
-  {{- end -}}
-{{- end -}}
+{{- $image = (partial "featured_image.html" .) -}}
 <script type="application/ld+json">
 {
     "@context": "https://schema.org",

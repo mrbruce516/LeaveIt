@@ -1,0 +1,17 @@
+{{- /* 社交封面统一来源：front matter featured_image → 正文首图 → 站点默认图。
+     返回封面图绝对 URL（字符串）。仅供社交卡（OG/Twitter/JSON-LD）使用，不在页面渲染头图。 */ -}}
+{{- $url := "" -}}
+{{- with .Params.featured_image -}}
+  {{- $url = . | absURL -}}
+{{- else -}}
+  {{- /* 宽松正则：src 可在任意属性位置，兼容 markdown 图、原生 HTML 图、src 非首属性图 */ -}}
+  {{- $imgs := findRE `<img[^>]*src="[^"]*"` $.Content -}}
+  {{- with index $imgs 0 -}}
+    {{- $url = replaceRE `<img[^>]*src="([^"]*)"` "$1" . | absURL -}}
+  {{- else -}}
+    {{- with $.Site.Params.seo_image -}}
+      {{- $url = . | absURL -}}
+    {{- end -}}
+  {{- end -}}
+{{- end -}}
+{{- return $url -}}

@@ -7,14 +7,8 @@
 {{- if .IsPage -}}
   {{- $isArticle = true -}}
   {{- $description = cond (ne .Description "") .Description .Summary -}}
-  {{- /* og:image 优先级：文章 featured_image → 站点默认图 */ -}}
-  {{- with .Params.featured_image -}}
-    {{- $image = . | absURL -}}
-  {{- else -}}
-    {{- with $.Site.Params.seo_image -}}
-      {{- $image = . | absURL -}}
-    {{- end -}}
-  {{- end -}}
+  {{- /* og:image 优先级：featured_image → 正文首图 → 站点默认图（统一走 partial） */ -}}
+  {{- $image = (partial "featured_image.html" .) -}}
 {{- else -}}
   {{- /* 非文章页：用站点 description 与默认图 */ -}}
   {{- $description = .Site.Params.description -}}

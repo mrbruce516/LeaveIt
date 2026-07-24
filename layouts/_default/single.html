@@ -28,18 +28,10 @@
             {{ partial "toc.html" . }}
         {{ end }}
     <div class="post-content">
-        <!--featured_image-->
-
         {{ $images := findRE "<img src=\"[^\"|\\\"]*\"" .Content -}}
         {{ if ge (len $images) 1}}
         {{ $.Scratch.Set "postHasImages" true }}
         {{ end }}
-
-        {{ with .Params.featured_image }}
-        {{- $img := . -}}
-        <img src="{{ printf "%s%s" $cdn_url $img }}" class="featured_image">
-        {{ end }}
-        <!-- end featured_image-->
 
         {{ $reAltIn := "<img src=\"([^\"]+)\" alt=\"([^\"]+)?\" />" }}
         {{ $reAltOut :=  ( printf "<figure><img src=\"/images/ring.svg\" data-sizes=\"auto\" data-src=\"%s$1\" alt=\"$2\" class=\"lazyload\"><figcaption class=\"image-caption\">$2</figcaption></figure>" $cdn_url ) }}
